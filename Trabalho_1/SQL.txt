@@ -1,0 +1,76 @@
+CREATE TABLE Empréstimo 
+( 
+ ID Emprestimo INT PRIMARY KEY,  
+ Data do Empréstimo INT,  
+ Data para Devolução INT,  
+); 
+
+CREATE TABLE Livro 
+( 
+ ID Livro INT PRIMARY KEY,  
+ Gênero INT,  
+ Ano INT,  
+ Título INT,  
+); 
+
+CREATE TABLE Usuário 
+( 
+ ID Usuário INT PRIMARY KEY,  
+ Nome INT,  
+ Telefone INT,  
+ e-mail INT,  
+ Bairro INT,  
+ Cidade INT,  
+); 
+
+CREATE TABLE Autor 
+( 
+ Nome INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Devolução 
+( 
+ ID Devolução INT PRIMARY KEY,  
+ Data devolução INT,  
+); 
+
+CREATE TABLE Usuário faz empréstimo 
+( 
+ ID Emprestimo INT PRIMARY KEY,  
+ ID Usuário INT,  
+); 
+
+CREATE TABLE Livro Emprestado 
+( 
+ ID Emprestimo INT PRIMARY KEY,  
+ ID Livro INT PRIMARY KEY,  
+); 
+
+CREATE TABLE O Livro é escrito pelo Autor 
+( 
+ ID Livro INT PRIMARY KEY,  
+ Nome INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Livro devolvido 
+( 
+ ID Livro INT PRIMARY KEY,  
+ ID Devolução INT,  
+); 
+
+CREATE TABLE Usuário devolveu 
+( 
+ ID Usuário INT PRIMARY KEY,  
+ ID Devolução INT,  
+); 
+
+ALTER TABLE Usuário faz empréstimo ADD FOREIGN KEY(ID Emprestimo) REFERENCES Empréstimo (ID Emprestimo)
+ALTER TABLE Usuário faz empréstimo ADD FOREIGN KEY(ID Usuário) REFERENCES Usuário (ID Usuário)
+ALTER TABLE Livro Emprestado ADD FOREIGN KEY(ID Emprestimo) REFERENCES Empréstimo (ID Emprestimo)
+ALTER TABLE Livro Emprestado ADD FOREIGN KEY(ID Livro) REFERENCES Livro (ID Livro)
+ALTER TABLE O Livro é escrito pelo Autor ADD FOREIGN KEY(ID Livro) REFERENCES Livro (ID Livro)
+ALTER TABLE O Livro é escrito pelo Autor ADD FOREIGN KEY(Nome) REFERENCES Autor (Nome)
+ALTER TABLE Livro devolvido ADD FOREIGN KEY(ID Livro) REFERENCES Livro (ID Livro)
+ALTER TABLE Livro devolvido ADD FOREIGN KEY(ID Devolução) REFERENCES Devolução (ID Devolução)
+ALTER TABLE Usuário devolveu ADD FOREIGN KEY(ID Usuário) REFERENCES Usuário (ID Usuário)
+ALTER TABLE Usuário devolveu ADD FOREIGN KEY(ID Devolução) REFERENCES Devolução (ID Devolução)
