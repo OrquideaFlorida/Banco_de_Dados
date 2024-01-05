@@ -18,32 +18,30 @@ foreign key (AutorID) references Autores(AutorID)
 #
 # -- 1) Inserção de dados:
 #
-# Os dados foram inseridos com "insert to" e "values", já com vários na mesma chamada.
+# Os dados foram inseridos com "insert to" e "values", com vários na mesma chamada.
 
 insert into Autores(Nome, Nacionalidade) values
-('Mirabel Madrigal', 'Colombia'),
-('Ana Maria', 'Brasil'),
-('Maria Ana', 'Brasil'),
+('Ariano Suassuna', 'Brasil'),
+('Ziraldo', 'Brasil'),
+('J.R.R. Tolkien', 'Africa do Sul'),
 ('Autor sem livros', 'Equador');
 
 insert into Livros(Titulo, AnoPublicacao, AutorID) values
-('O corpo que cai', 2000, 1), 
-('O corpo que sobe', 2002, 1),
-('O corpo que anda', 2005, 1), 
-('O corpo que pula', 2004, 1),
-('O corpo que dorme', 2010, 1),
-('Diamante', 2007, 2), 
-('Esmeralda', 2009, 2),
-('Rubi', 2005, 2), 
-('Pérola', 2010, 2),
-('Caminhando contra o vento', 2018, 3), 
-('Trotando na chuva', 2017, 3),
-('Andando no sol', 2019, 3);
+('O Alto da Compadecida', 1955, 1), 
+('Fernando e Isaura', 1994, 1),
+('O Rico Avarento', 1954, 1),
+('O Menino Maluquinho', 1980, 2), 
+('Chapeuzinho Amarelo', 1970, 2),
+('Meninas', 2016, 2),
+('O Senhor dos Anéis', 1954, 3), 
+('O Hobbit', 1937, 3),
+('O Silmarillion', 1977, 3);
 
 #
 # -- 2) Consultas simples:
 #
-# Aqui temos consultas simples das tabelas individualmente, mostrando todas as linhas e colunas de cada uma.
+# Aqui temos consultas simples das tabelas individualmente, 
+# mostrando todas as linhas e colunas de cada uma.
 
 select
 AutorID as 'Autor ID',
@@ -57,7 +55,8 @@ Titulo as 'Título',
 AnoPublicacao as 'Ano'
 from Livros;
 
-# Aqui, para juntar as colunas das duas tabelas utilizei o "join", mas dessa forma, o autor que não tem livros não aparece nos resultados.
+# Para juntar as colunas das duas tabelas foi utilizado o "join", mas dessa forma, 
+# o autor que não tem livros não aparece nos resultados.
 
 select
 Autores.AutorID as 'Autor ID',
@@ -87,7 +86,8 @@ inner join Livros on Autores.AutorID = Livros.AutorID;
 #
 # -- 4) Consulta com left join:
 #
-# Utilizando o "left join", a tabela de autores, que está a esquerda, será mostrada por inteiro. Então até o autor sem livros é mostrado.
+# Utilizando o "left join", a tabela de autores, que está a esquerda, será mostrada por inteiro.
+# Então até o autor sem livros é mostrado.
 
 select
 Autores.AutorID as 'Autor ID',
@@ -102,7 +102,8 @@ left join Livros on Autores.AutorID = Livros.AutorID;
 #
 # -- 5) Consulta com filtro por nacionalidade:
 #
-# O filtro por nacionalidade usa o "where", junto com o "left join" para mostrar o autor que não tem livros também, se for o caso. 
+# O filtro por nacionalidade usa o "where", junto com o "left join" para mostrar o autor 
+# que não tem livros também, se for o caso. 
 
 select
 Autores.AutorID as 'Autor ID',
