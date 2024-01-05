@@ -5,6 +5,7 @@ use trabalho4;
 create table transacoes (
 idTransacao int auto_increment primary key,
 produto varchar(45),
+marca varchar(45),
 categoriaProduto varchar(45),
 dataTransacao date,
 valorTransacao decimal(10,2)
@@ -12,7 +13,7 @@ valorTransacao decimal(10,2)
 insert into transacoes(produto, marca, categoriaProduto, dataTransacao, valorTransacao) values
 ('relógio', 'cássio', 'eletrônicos', '2012-1-15', 300),
 ('geladeira', 'eletrolux', 'eletrodomésticos', '2013-5-20', 2600),
-('cama box', 'ortobom, 'móveis', '2022-12-12', 1099),
+('cama box', 'ortobom', 'móveis', '2022-12-12', 1099),
 ('sofá seis lugares', 'toronto', 'móveis', '2023-6-15', 950),
 ('microsystem', 'JBL', 'eletrônicos', '2016-5-20', 380),
 ('smart tv 65"', 'LG', 'eletrônicos', '2023-12-25', 2900),
